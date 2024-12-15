@@ -1,14 +1,17 @@
 # Nerfies
 
-This is the repository that contains source code for the [Nerfies website](https://nerfies.github.io).
+This is the repository that contains source code for the [MDMP website](https://leob03.github.io/mdmp.github.io/).
 
 If you find Nerfies useful for your work please cite:
 ```
-@article{park2021nerfies
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+@misc{bringer2024mdmp,
+      title={MDMP: Multi-modal Diffusion for supervised Motion Predictions with uncertainty}, 
+      author={Leo Bringer and Joey Wilson and Kira Barton and Maani Ghaffari},
+      year={2024},
+      eprint={2410.03860},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2410.03860}, 
 }
 ```
 
