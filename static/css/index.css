@@ -20,7 +20,7 @@ body {
 
 .teaser .hero-body {
   padding-top: 0;
-  padding-bottom: 3rem;
+  padding-bottom: 1.5rem;
 }
 
 .teaser {
@@ -162,4 +162,16 @@ body {
 
 .has-background-white {
   background-color: #ffffff; /* White */
+}
+
+.audio-overview {
+  margin-top: 1.5rem;
+}
+
+.audio-overview .content {
+  margin-bottom: 1rem;
+}
+
+.section .title.is-3 {
+  margin-top: 1.5rem;
 }
