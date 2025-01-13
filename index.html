@@ -173,7 +173,7 @@
             As part of the Diffusion Process MDMP progressively denoises a motion sample conditioned by an input motion through masking. Our architecture employs a GCN encoder to capture spatial joint features. We encode text prompts using CLIP followed by a linear layer; the textual embedding c and the noise time-step t are projected to the same dimensional latent space by separate feed-forward networks. These features, summed with a sinusoidal positional embedding, are fed into a Transformer encoder-only backbone. The backbone output is projected back to the original motion dimensions via a GCN decoder. Our model is trained both conditionally and unconditionally on text, by randomly masking 10% of the text embeddings. This approach balances diversity and text-fidelity during sampling.
           </p>
           <p>
-            Our method uses the building blocks of MDM, but with three key differences: (1) a denoising model that includes variance learning to increase log-likelihood and perform uncertainty estimates, (2) the GCN encoder with learnable graph connectivity, and (3) a learning framework that incorporates contextuality by synchronizing skeletal inputs with initial textual inputs.
+            Our method uses the building blocks of <a href="https://guytevet.github.io/mdm-page/">MDM</a>, but with three key differences: (1) a denoising model that includes variance learning to increase log-likelihood and perform uncertainty estimates, (2) the GCN encoder with learnable graph connectivity, and (3) a learning framework that incorporates contextuality by synchronizing skeletal inputs with initial textual inputs.
           </p>
         </div>
       </div>
@@ -198,13 +198,38 @@
 
 <section class="section has-background-light">
   <div class="container is-max-desktop">
-    <!-- Add any qualitative results, figures, etc. -->
-    <h2 class="title is-3">Qualitative Results</h2>
-    <div class="content has-text-justified">
-      <p>Showcase your comparison plots, qualitative comparisons, or uncertainty visualization examples here.</p>
-      <!-- Example placeholder image -->
-      <img src="./static/images/sample_result.png" alt="Qualitative result sample">
+    <!-- Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <h3>Model Accuracy Evaluation:</h3>
+          <ul>
+            <li>MDMP outperforms baseline Text2Motion models in terms of accuracy, particularly over longer sequences. Unlike baseline models like MoMask, MotionGPT, and MDM that treat motion data as a masked input during sampling, MDMP is trained to leverage it as an additional supervision signal. This leads to significant performance improvement, demonstrated by lower MPJPE values over time (Figure 4).</li>
+            <li>Integrating textual and skeletal data significantly enhances the accuracy of predictions. Ablation studies (Table 1) confirm that combining both input types results in much higher prediction accuracy.</li>
+            <li>MDMP is capable of continuous operation between different actions even without specific action context. The results show that it performs slightly better without text for very short-term predictions. This means that our model could be used in an HRC setting for continuous operation between different actions, even without specific action context.</li>
+          </ul>
+          <h3>Uncertainty Parameter Evaluation:</h3>
+          <ul>
+            <li>Mode Divergence proves to be the best performing uncertainty index. It closely follows the Oracle curve, indicating strong alignment between uncertainty estimates and true errors (Figure 5).</li>
+            <li>Denoising Fluctuations and Predicted Variance are less reliable indices for uncertainty estimation. While they show a general declining trend, the effect is less pronounced suggesting less reliability.</li>
+          </ul>
+          <h3>Ablation Study - Motion and Text Effects:</h3>
+          <ul>
+            <li>The study confirms the importance of multimodal fusion by demonstrating increased prediction accuracy when both input types are used.</li>
+            <li>The model relies more heavily on motion input sequences than textual prompts for short-term predictions.</li>
+            <li>Textual information is most useful for longer-term predictions where the stochasticity and variability of potential scenarios are much higher.</li>
+          </ul>
+          <h3>Ablation Study - Architectural Design and Parameter Choice:</h3>
+          <ul>
+            <li>Learned Graph Connectivity improves the understanding of human joint trajectory dependencies. Using GCNs leads to better performance than linear layers, especially for longer-term predictions.</li>
+            <li>Learning variances allows the model to capture more data distribution modes, enhancing the accuracy over longer-term predictions.</li>
+            <li>Reducing the number of diffusion steps significantly improves the computational efficiency, which is pivotal for real-time Human-Robot Collaboration. This optimization also resulted in improved accuracy over time.</li>
+          </ul>
+        </div>
+      </div>
     </div>
+    <!-- /Results -->
   </div>
 </section>
 
