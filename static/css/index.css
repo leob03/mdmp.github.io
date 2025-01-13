@@ -165,13 +165,19 @@ body {
 }
 
 .audio-overview {
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
 }
 
 .audio-overview .content {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.audio-overview audio {
+  width: 80%;
 }
 
 .section .title.is-3 {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
