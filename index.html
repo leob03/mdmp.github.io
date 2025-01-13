@@ -138,7 +138,25 @@
     </div>
     <!-- /Abstract -->
 
-    <!-- If you have a main result video or figure -->
+    <!-- Method -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <!-- Add the image summarizing the method -->
+          <img src="./static/images/method.png" alt="Method Summary" style="margin-bottom: 20px;">
+          <p>
+            As part of the Diffusion Process MDMP progressively denoises a motion sample conditioned by an input motion through masking. Our architecture employs a GCN encoder to capture spatial joint features. We encode text prompts using CLIP followed by a linear layer; the textual embedding c and the noise time-step t are projected to the same dimensional latent space by separate feed-forward networks. These features, summed with a sinusoidal positional embedding, are fed into a Transformer encoder-only backbone. The backbone output is projected back to the original motion dimensions via a GCN decoder. Our model is trained both conditionally and unconditionally on text, by randomly masking 10% of the text embeddings. This approach balances diversity and text-fidelity during sampling.
+          </p>
+          <p>
+            Our method uses the building blocks of MDM, but with three key differences: (1) a denoising model that includes variance learning to increase log-likelihood and perform uncertainty estimates, (2) the GCN encoder with learnable graph connectivity, and (3) a learning framework that incorporates contextuality by synchronizing skeletal inputs with initial textual inputs.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- /Method -->
+
+    <!-- Main Results -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Main Results</h2>
