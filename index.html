@@ -181,16 +181,16 @@
     <!-- /Method -->
 
     <!-- Main Results -->
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Main Results</h2>
         <div class="publication-video">
-          <!-- Example embedded video -->
           <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&showinfo=0"
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
-    </div>
+    </div> -->
+    <!-- Main Results -->
 
   </div>
 </section>
@@ -204,23 +204,26 @@
         <h2 class="title is-3">Results</h2>
         <div class="content has-text-justified">
           <h3>Model Accuracy Evaluation:</h3>
+          <img src="./static/images/results_.png" alt="Model Accuracy Evaluation" style="margin-bottom: 20px;">
           <ul>
-            <li>MDMP outperforms baseline Text2Motion models in terms of accuracy, particularly over longer sequences. Unlike baseline models like MoMask, MotionGPT, and MDM that treat motion data as a masked input during sampling, MDMP is trained to leverage it as an additional supervision signal. This leads to significant performance improvement, demonstrated by lower MPJPE values over time (Figure 4).</li>
+            <li>MDMP outperforms baseline Text2Motion models in terms of accuracy, particularly over longer sequences. Unlike baseline models like MoMask, MotionGPT, and MDM that treat motion data as a masked input during sampling, MDMP is trained to leverage it as an additional supervision signal. This leads to significant performance improvement, demonstrated by lower MPJPE values over time.</li>
             <li>Integrating textual and skeletal data significantly enhances the accuracy of predictions. Ablation studies (Table 1) confirm that combining both input types results in much higher prediction accuracy.</li>
-            <li>MDMP is capable of continuous operation between different actions even without specific action context. The results show that it performs slightly better without text for very short-term predictions. This means that our model could be used in an HRC setting for continuous operation between different actions, even without specific action context.</li>
           </ul>
           <h3>Uncertainty Parameter Evaluation:</h3>
+          <img src="./static/images/sparsification.png" alt="Uncertainty Parameter Evaluation" style="margin-bottom: 20px;">
           <ul>
-            <li>Mode Divergence proves to be the best performing uncertainty index. It closely follows the Oracle curve, indicating strong alignment between uncertainty estimates and true errors (Figure 5).</li>
+            <li>Mode Divergence proves to be the best performing uncertainty index. It closely follows the Oracle curve, indicating strong alignment between uncertainty estimates and true errors.</li>
             <li>Denoising Fluctuations and Predicted Variance are less reliable indices for uncertainty estimation. While they show a general declining trend, the effect is less pronounced suggesting less reliability.</li>
           </ul>
           <h3>Ablation Study - Motion and Text Effects:</h3>
+          <img src="./static/images/table1.png" alt="Ablation Study - Motion and Text Effects" style="margin-bottom: 20px;">
           <ul>
             <li>The study confirms the importance of multimodal fusion by demonstrating increased prediction accuracy when both input types are used.</li>
             <li>The model relies more heavily on motion input sequences than textual prompts for short-term predictions.</li>
             <li>Textual information is most useful for longer-term predictions where the stochasticity and variability of potential scenarios are much higher.</li>
           </ul>
           <h3>Ablation Study - Architectural Design and Parameter Choice:</h3>
+          <img src="./static/images/table2.png" alt="Ablation Study - Architectural Design and Parameter Choice" style="margin-bottom: 20px;">
           <ul>
             <li>Learned Graph Connectivity improves the understanding of human joint trajectory dependencies. Using GCNs leads to better performance than linear layers, especially for longer-term predictions.</li>
             <li>Learning variances allows the model to capture more data distribution modes, enhancing the accuracy over longer-term predictions.</li>
