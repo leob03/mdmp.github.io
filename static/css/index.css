@@ -155,3 +155,11 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+.has-background-light {
+  background-color: #f7f7f7; /* Very light gray */
+}
+
+.has-background-white {
+  background-color: #ffffff; /* White */
+}
